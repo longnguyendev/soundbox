@@ -134,7 +134,9 @@ class HomeController: UIViewController, UITableViewDataSource, UICollectionViewD
     
     //MARK: định nghĩa các hàm uỷ quyền cho UICollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("count", CustomTabbarViewController.recentlySongs.count)
         return CustomTabbarViewController.recentlySongs.count
+    
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -144,7 +146,7 @@ class HomeController: UIViewController, UITableViewDataSource, UICollectionViewD
         let song = CustomTabbarViewController.recentlySongs[indexPath.row]
         
         //khởi tạo url thumbnail dựa trên thumbnail của bài hát
-        let url = URL(string: "https://soundboxfree.000webhostapp.com/storage/app/public/thumbnails/" + song.getThumbnail())
+        let url = URL(string: Constant.API_URL+"/storage/thumbnails/" + song.getThumbnail())
         let session = URLSession.shared
         let task = session.dataTask(with: url!) { (data, response, error) in
             if let error = error {
@@ -184,7 +186,7 @@ class HomeController: UIViewController, UITableViewDataSource, UICollectionViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ReccommedTableViewCell
         let song = CustomTabbarViewController.reccommedSongs[indexPath.row]
         
-        let url = URL(string: "https://soundboxfree.000webhostapp.com/storage/app/public/thumbnails/" + song.getThumbnail())
+        let url = URL(string: Constant.API_URL+"/storage/thumbnails/" + song.getThumbnail())
         let session = URLSession.shared
         let task = session.dataTask(with: url!) { (data, response, error) in
             if let error = error {
@@ -225,6 +227,7 @@ class HomeController: UIViewController, UITableViewDataSource, UICollectionViewD
             
             if (!CustomTabbarViewController.recentlyIds.contains(String(CustomTabbarViewController.currentSong.getID()))) {
                 CustomTabbarViewController.recentlyIds.insert(String(CustomTabbarViewController.currentSong.getID()), at: 0)
+                MyLocalStorage.recentlyIds = CustomTabbarViewController.recentlyIds
             }
             else {
                 guard let index =  CustomTabbarViewController.recentlyIds.firstIndex(of: (String(CustomTabbarViewController.currentSong.getID()))) else {
@@ -232,6 +235,7 @@ class HomeController: UIViewController, UITableViewDataSource, UICollectionViewD
                 }
                 CustomTabbarViewController.recentlyIds.remove(at: index)
                 CustomTabbarViewController.recentlyIds.insert(String(CustomTabbarViewController.currentSong.getID()), at: 0)
+                MyLocalStorage.recentlyIds = CustomTabbarViewController.recentlyIds
             }
             
             //cập nhật lại danh sách bài hát phát gần đây sau  khi gọi xong api
@@ -282,7 +286,7 @@ class HomeController: UIViewController, UITableViewDataSource, UICollectionViewD
             
             
             //khởi tạo url bài hát từ filePath
-            let url = URL(string: "https://soundboxfree.000webhostapp.com/storage/app/public/filePaths/" + CustomTabbarViewController.currentSong.getFilePath())!
+            let url = URL(string: Constant.API_URL+"/storage/filePaths/" + CustomTabbarViewController.currentSong.getFilePath())!
             let session = URLSession.shared
             let task = session.dataTask(with: url) { (data, response, error) in
                 if let error = error {
@@ -381,7 +385,7 @@ class HomeController: UIViewController, UITableViewDataSource, UICollectionViewD
                 }
             }
             
-            let url = URL(string: "https://soundboxfree.000webhostapp.com/storage/app/public/filePaths/" + CustomTabbarViewController.currentSong.getFilePath())!
+            let url = URL(string: Constant.API_URL+"/storage/filePaths/" + CustomTabbarViewController.currentSong.getFilePath())!
             let session = URLSession.shared
             let task = session.dataTask(with: url) { (data, response, error) in
                 if let error = error {
@@ -439,7 +443,7 @@ class HomeController: UIViewController, UITableViewDataSource, UICollectionViewD
         
         //xử lý dữ liệu tiếng việt dể tránh lỗi
         let keyWord = q.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        guard let url = URL(string: "https://soundboxfree.000webhostapp.com/public/api/search/" + keyWord!) else {
+        guard let url = URL(string: Constant.API_URL+"/api/search/" + keyWord!) else {
             // Handle error when URL is invalid
             return
         }

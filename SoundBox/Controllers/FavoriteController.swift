@@ -34,7 +34,7 @@ class FavoriteController: UIViewController, UICollectionViewDataSource, UICollec
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "listSong", for: indexPath) as! ListSongCollectionViewCell
         let song = CustomTabbarViewController.favouriteSongs[indexPath.row]
         //        cell.imgSong.image = song.getImage()
-        let url = URL(string: "https://soundboxfree.000webhostapp.com/storage/app/public/thumbnails/" + song.getThumbnail())
+        let url = URL(string: Constant.API_URL+"/storage/thumbnails/" + song.getThumbnail())
         let session = URLSession.shared
         let task = session.dataTask(with: url!) { (data, response, error) in
             if let error = error {
@@ -145,7 +145,7 @@ class FavoriteController: UIViewController, UICollectionViewDataSource, UICollec
                 }
             }
             
-            let url = URL(string: "https://soundboxfree.000webhostapp.com/storage/app/public/filePaths/" + CustomTabbarViewController.currentSong.getFilePath())!
+            let url = URL(string: Constant.API_URL+"/storage/filePaths/" + CustomTabbarViewController.currentSong.getFilePath())!
             let session = URLSession.shared
             let task = session.dataTask(with: url) { (data, response, error) in
                 if let error = error {

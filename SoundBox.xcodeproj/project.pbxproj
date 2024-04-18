@@ -7,12 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5518CC202BB7F5EF00634D62 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518CC1F2BB7F5EF00634D62 /* Constant.swift */; };
+		5518CC222BB7FC7900634D62 /* MyLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5518CC212BB7FC7900634D62 /* MyLocalStorage.swift */; };
 		74177FB82A0D592B007E6862 /* CustomTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74177FB72A0D592B007E6862 /* CustomTabbarViewController.swift */; };
-		7464074A2A0F708700F34C5E /* Ca-Phe-MIN.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746407492A0F708700F34C5E /* Ca-Phe-MIN.mp3 */; };
-		7464074C2A0F770700F34C5E /* vetmua.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7464074B2A0F770700F34C5E /* vetmua.mp3 */; };
 		7464E17A2A13FA8E00A7EDC2 /* ResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7464E1792A13FA8E00A7EDC2 /* ResultController.swift */; };
-		747C28762A10BB1800C6C51B /* Haru Haru - Big Bang.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 747C28752A10BB1800C6C51B /* Haru Haru - Big Bang.m4a */; };
-		747C28782A1128FF00C6C51B /* Ngoc Nghech - Bao Thy.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 747C28772A1128FF00C6C51B /* Ngoc Nghech - Bao Thy.m4a */; };
 		7481AB7C2A0633B100391780 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7481AB7B2A0633B100391780 /* AppDelegate.swift */; };
 		7481AB7E2A0633B100391780 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7481AB7D2A0633B100391780 /* SceneDelegate.swift */; };
 		7481AB802A0633B100391780 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7481AB7F2A0633B100391780 /* HomeController.swift */; };
@@ -55,12 +53,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5518CC1F2BB7F5EF00634D62 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		5518CC212BB7FC7900634D62 /* MyLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocalStorage.swift; sourceTree = "<group>"; };
 		74177FB72A0D592B007E6862 /* CustomTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbarViewController.swift; sourceTree = "<group>"; };
-		746407492A0F708700F34C5E /* Ca-Phe-MIN.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ca-Phe-MIN.mp3"; sourceTree = "<group>"; };
-		7464074B2A0F770700F34C5E /* vetmua.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = vetmua.mp3; sourceTree = "<group>"; };
 		7464E1792A13FA8E00A7EDC2 /* ResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultController.swift; sourceTree = "<group>"; };
-		747C28752A10BB1800C6C51B /* Haru Haru - Big Bang.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Haru Haru - Big Bang.m4a"; sourceTree = "<group>"; };
-		747C28772A1128FF00C6C51B /* Ngoc Nghech - Bao Thy.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ngoc Nghech - Bao Thy.m4a"; sourceTree = "<group>"; };
 		7481AB782A0633B100391780 /* SoundBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7481AB7B2A0633B100391780 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7481AB7D2A0633B100391780 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,14 +133,10 @@
 		7481AB7A2A0633B100391780 /* SoundBox */ = {
 			isa = PBXGroup;
 			children = (
-				747C28772A1128FF00C6C51B /* Ngoc Nghech - Bao Thy.m4a */,
-				747C28752A10BB1800C6C51B /* Haru Haru - Big Bang.m4a */,
 				74954DCE2A20CE67003CED9E /* SoundBox.gif */,
 				74954DCC2A20CC2C003CED9E /* logo.gif */,
 				74954DD02A20CFF1003CED9E /* Sound Box.gif */,
 				74954DC02A20BBA1003CED9E /* intro.mp3 */,
-				7464074B2A0F770700F34C5E /* vetmua.mp3 */,
-				746407492A0F708700F34C5E /* Ca-Phe-MIN.mp3 */,
 				7481ABAE2A0633EE00391780 /* System file */,
 				7481AB812A0633B100391780 /* Main.storyboard */,
 			);
@@ -171,6 +163,7 @@
 		7481ABAE2A0633EE00391780 /* System file */ = {
 			isa = PBXGroup;
 			children = (
+				5518CC1F2BB7F5EF00634D62 /* Constant.swift */,
 				7481AB842A0633B100391780 /* SoundBox.xcdatamodeld */,
 				7481AB8C2A0633B200391780 /* Info.plist */,
 				7481AB892A0633B200391780 /* LaunchScreen.storyboard */,
@@ -180,6 +173,7 @@
 				74D6A6342A0DFD8100480597 /* Model */,
 				74D6A6332A0DFD5100480597 /* Controls */,
 				74D6A6352A0DFDD200480597 /* Controllers */,
+				5518CC212BB7FC7900634D62 /* MyLocalStorage.swift */,
 			);
 			name = "System file";
 			sourceTree = "<group>";
@@ -280,7 +274,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					7481AB772A0633B100391780 = {
 						CreatedOnToolsVersion = 14.2;
@@ -325,12 +319,8 @@
 				74954DCF2A20CE67003CED9E /* SoundBox.gif in Resources */,
 				7481AB832A0633B100391780 /* Main.storyboard in Resources */,
 				74954DC12A20BBA1003CED9E /* intro.mp3 in Resources */,
-				747C28782A1128FF00C6C51B /* Ngoc Nghech - Bao Thy.m4a in Resources */,
-				747C28762A10BB1800C6C51B /* Haru Haru - Big Bang.m4a in Resources */,
-				7464074C2A0F770700F34C5E /* vetmua.mp3 in Resources */,
 				74954DD12A20CFF1003CED9E /* Sound Box.gif in Resources */,
 				74954DCD2A20CC2C003CED9E /* logo.gif in Resources */,
-				7464074A2A0F708700F34C5E /* Ca-Phe-MIN.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,8 +347,10 @@
 			files = (
 				74954DC92A20C5C6003CED9E /* GiftLoader.swift in Sources */,
 				7481AB802A0633B100391780 /* HomeController.swift in Sources */,
+				5518CC202BB7F5EF00634D62 /* Constant.swift in Sources */,
 				7481AB7C2A0633B100391780 /* AppDelegate.swift in Sources */,
 				7481AB7E2A0633B100391780 /* SceneDelegate.swift in Sources */,
+				5518CC222BB7FC7900634D62 /* MyLocalStorage.swift in Sources */,
 				74E616262A0F285100B8ED21 /* ListSongCollectionViewCell.swift in Sources */,
 				74FC9F1A2A0776F000999929 /* ReccommedTableViewCell.swift in Sources */,
 				74D2F99E2A07C19500C32AB9 /* Song.swift in Sources */,
@@ -460,6 +452,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -520,6 +513,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

@@ -25,9 +25,9 @@ class CustomTabbarViewController: UIViewController {
     public static var favouriteSongs = [Song]()
     public static var resultSongs:[Song] = [Song]()
     
-    public static var favoriteIds = ["1","3","5"]
+    public static var favoriteIds:[String] = MyLocalStorage.favoriteIds
     
-    public static var recentlyIds = ["6", "4", "2"]
+    public static var recentlyIds:[String] = MyLocalStorage.recentlyIds
     
     public static var timer:Timer!
     
@@ -159,7 +159,7 @@ class CustomTabbarViewController: UIViewController {
     //MARK: các hàm gọi API
     public static func callAPIRecommedSong(completion: @escaping (Bool) -> Void)  {
         CustomTabbarViewController.reccommedSongs = []
-        guard   let url = URL(string: "https://soundboxfree.000webhostapp.com/public/api/reccommed") else {
+        guard   let url = URL(string: Constant.API_URL+"/api/reccommed") else {
             // Handle error when URL is invalid
             return
         }
@@ -204,7 +204,7 @@ class CustomTabbarViewController: UIViewController {
     }
     public static func callAPIFavouriteSong(completion: @escaping (Bool) -> Void)  {
         CustomTabbarViewController.favouriteSongs = []
-        guard  let url = URL(string: "https://soundboxfree.000webhostapp.com/public/api/favorite?ids=[\(CustomTabbarViewController.favoriteIds.joined(separator: ","))]") else {
+        guard  let url = URL(string: Constant.API_URL+"/api/favorite?ids=[\(CustomTabbarViewController.favoriteIds.joined(separator: ","))]") else {
             // Handle error when URL is invalid
             return
         }
@@ -249,7 +249,7 @@ class CustomTabbarViewController: UIViewController {
     }
     public static func callAPIRecentlySong(completion: @escaping (Bool) -> Void)  {
         CustomTabbarViewController.recentlySongs = []
-        guard  let url = URL(string: "https://soundboxfree.000webhostapp.com/public/api/recently?ids=[\(CustomTabbarViewController.recentlyIds.joined(separator: ","))]") else {
+        guard  let url = URL(string: Constant.API_URL+"/api/recently?ids=[\(CustomTabbarViewController.recentlyIds.joined(separator: ","))]") else {
             // Handle error when URL is invalid
             return
         }
@@ -294,7 +294,7 @@ class CustomTabbarViewController: UIViewController {
     }
     
     public static func updateListens(id: Int,completion: @escaping (Bool) -> Void) {
-        if let url = URL(string: "https://soundboxfree.000webhostapp.com/public/api/songs/" + String(id)) {
+        if let url = URL(string: Constant.API_URL+"/api/songs/" + String(id)) {
             let session = URLSession.shared
 
             let task = session.dataTask(with: url) { (data, response, error) in

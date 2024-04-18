@@ -35,7 +35,7 @@ class ResultController: UIViewController, UITableViewDataSource  {
         let song = CustomTabbarViewController.resultSongs[indexPath.row]
         
         
-        let url = URL(string: "https://soundboxfree.000webhostapp.com/storage/app/public/thumbnails/" + song.getThumbnail())
+        let url = URL(string: Constant.API_URL+"/storage/thumbnails/" + song.getThumbnail())
             let session = URLSession.shared
             let task = session.dataTask(with: url!) { (data, response, error) in
                 if let error = error {
@@ -70,6 +70,7 @@ class ResultController: UIViewController, UITableViewDataSource  {
         CustomTabbarViewController.currentSong = CustomTabbarViewController.resultSongs[index.row]
         if (!CustomTabbarViewController.recentlyIds.contains(String(CustomTabbarViewController.currentSong.getID()))) {
             CustomTabbarViewController.recentlyIds.insert(String(CustomTabbarViewController.currentSong.getID()), at: 0)
+            MyLocalStorage.recentlyIds = CustomTabbarViewController.recentlyIds
         }
         else {
             guard let index =  CustomTabbarViewController.recentlyIds.firstIndex(of: (String(CustomTabbarViewController.currentSong.getID()))) else {
@@ -77,6 +78,7 @@ class ResultController: UIViewController, UITableViewDataSource  {
             }
             CustomTabbarViewController.recentlyIds.remove(at: index)
             CustomTabbarViewController.recentlyIds.insert(String(CustomTabbarViewController.currentSong.getID()), at: 0)
+            MyLocalStorage.recentlyIds = CustomTabbarViewController.recentlyIds
         }
         
         //cập nhật lại danh sách bài hát phát gần đây sau  khi gọi xong api
@@ -125,7 +127,7 @@ class ResultController: UIViewController, UITableViewDataSource  {
         }
 //        print(CustomTabbarViewController.currentSong.getName())
   
-            let url = URL(string: "https://soundboxfree.000webhostapp.com/storage/app/public/filePaths/" + CustomTabbarViewController.currentSong.getFilePath())!
+            let url = URL(string: Constant.API_URL+"/storage/filePaths/" + CustomTabbarViewController.currentSong.getFilePath())!
                 
                 let session = URLSession.shared
                 let task = session.dataTask(with: url) { (data, response, error) in

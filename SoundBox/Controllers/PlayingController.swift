@@ -38,7 +38,7 @@ class PlayingController: UIViewController {
             if success {
                 // Xử lý dữ liệu từ API
                 print(CustomTabbarViewController.currentSong.getName())
-                let url = URL(string: "https://soundboxfree.000webhostapp.com/storage/app/public/filePaths/" + CustomTabbarViewController.currentSong.getFilePath())!
+                let url = URL(string: Constant.API_URL+"/storage/filePaths/" + CustomTabbarViewController.currentSong.getFilePath())!
                 let session = URLSession.shared
                 let task = session.dataTask(with: url) { (data, response, error) in
                     if let error = error {
@@ -67,7 +67,7 @@ class PlayingController: UIViewController {
                                 self.lbltitle.text = CustomTabbarViewController.currentSong.getName() + " by " + CustomTabbarViewController.currentSong.getSinger()
                                 self.lblName.text = CustomTabbarViewController.currentSong.getName()
                                 self.lblSinger.text = CustomTabbarViewController.currentSong.getSinger()
-                                let url = URL(string: "https://soundboxfree.000webhostapp.com/storage/app/public/thumbnails/" + CustomTabbarViewController.currentSong.getThumbnail())
+                                let url = URL(string: Constant.API_URL+"/storage/thumbnails/" + CustomTabbarViewController.currentSong.getThumbnail())
                                 let session = URLSession.shared
                                 let task = session.dataTask(with: url!) { (data, response, error) in
                                     if let error = error {
@@ -112,11 +112,13 @@ class PlayingController: UIViewController {
         if (!CustomTabbarViewController.favoriteIds.contains(String(CustomTabbarViewController.currentSong.getID()))) {
             sender.setImage(UIImage(named: "favoriteIsActive"), for: .normal)
             CustomTabbarViewController.favoriteIds.append(String(CustomTabbarViewController.currentSong.getID()))
+            MyLocalStorage.favoriteIds = CustomTabbarViewController.favoriteIds;
         }
         else {
             
             sender.setImage(UIImage(named: "heart"), for: .normal)
             CustomTabbarViewController.favoriteIds.remove(at: CustomTabbarViewController.favoriteIds.firstIndex(of: String(CustomTabbarViewController.currentSong.getID()))!)
+            MyLocalStorage.favoriteIds = CustomTabbarViewController.favoriteIds;
         }
         
         let group = DispatchGroup()
@@ -150,7 +152,7 @@ class PlayingController: UIViewController {
         lbltitle.text = CustomTabbarViewController.currentSong.getName() + " by " + CustomTabbarViewController.currentSong.getSinger()
         lblName.text = CustomTabbarViewController.currentSong.getName()
         lblSinger.text = CustomTabbarViewController.currentSong.getSinger()
-        let url = URL(string: "https://soundboxfree.000webhostapp.com/storage/app/public/thumbnails/" + CustomTabbarViewController.currentSong.getThumbnail())
+        let url = URL(string: Constant.API_URL+"/storage/thumbnails/" + CustomTabbarViewController.currentSong.getThumbnail())
         let session = URLSession.shared
         let task = session.dataTask(with: url!) { (data, response, error) in
             if let error = error {
@@ -262,7 +264,7 @@ class PlayingController: UIViewController {
         }
     }
     func callAPINextSong(completion: @escaping (Bool) -> Void) {
-        guard let url = URL(string: "https://soundboxfree.000webhostapp.com/public/api/next") else {
+        guard let url = URL(string: Constant.API_URL+"/api/next") else {
             // Handle error when URL is invalid
             return
         }
