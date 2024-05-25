@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lU7-B4-okc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lU7-B4-okc">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -267,7 +268,7 @@
                                 <color key="backgroundColor" red="0.039215686270000001" green="0.027450980390000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ho6-ZW-brj" userLabel="TabView">
-                                <rect key="frame" x="21" y="733" width="351" height="85"/>
+                                <rect key="frame" x="21" y="767" width="351" height="85"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="XxY-1S-Wek">
                                         <rect key="frame" x="0.0" y="0.0" width="351" height="85"/>
@@ -475,7 +476,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eKp-zU-vcN">
-                                <rect key="frame" x="21" y="818" width="351" height="34"/>
+                                <rect key="frame" x="21" y="852" width="351" height="0.0"/>
                                 <color key="backgroundColor" red="0.038133565340000002" green="0.036235701289999998" blue="0.112069197" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                         </subviews>

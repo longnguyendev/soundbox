@@ -108,13 +108,10 @@ class CustomTabbarViewController: UIViewController {
         
         //hiển thị view tương ứng với từng tag
         if tag == 0 {
-            clearOldView()
             getStateView(dentity:"HomeController")
         } else  if tag == 1 {
-            clearOldView()
             getStateView(dentity:"PlayingController")
         } else if tag == 2 {
-            clearOldView()
             getStateView(dentity:"FavoriteController")
         }
     }
@@ -126,12 +123,6 @@ class CustomTabbarViewController: UIViewController {
         }
     }
     
-    //hàm xoá đi các view cũ
-    public func clearOldView() {
-        for v in containerView.subviews{
-            v.removeFromSuperview()
-        }
-    }
     
     //hàm định dạng lại thanh tabbar
     private func customTabBar() {
@@ -145,6 +136,15 @@ class CustomTabbarViewController: UIViewController {
     
     //hàm lấy view theo identifierID
     private func getStateView(dentity identity: String) {
+        
+        //remove các view cũ trong container view
+        for child in children {
+               child.willMove(toParent: nil)
+               child.view.removeFromSuperview()
+               child.removeFromParent()
+           }
+        
+        
         let controller  = main.instantiateViewController(identifier: identity)
         addChild(controller)
         containerView.addSubview(controller.view)
